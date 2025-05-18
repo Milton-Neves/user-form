@@ -1,22 +1,33 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { User } from '../../models/user.model';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-user-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule],
+    MatIconModule,
+  ],
   templateUrl: './user-form.component.html',
-  styleUrl: './user-form.component.scss'
+  styleUrl: './user-form.component.scss',
 })
+
 export class UserFormComponent implements OnInit {
   userForm!: FormGroup;
 
@@ -32,7 +43,7 @@ export class UserFormComponent implements OnInit {
       rua: [''],
       bairro: [''],
       cidade: [''],
-      estado: ['']
+      estado: [''],
     });
   }
 
@@ -40,7 +51,6 @@ export class UserFormComponent implements OnInit {
     if (this.userForm.valid) {
       const novoUsuario: User = this.userForm.value;
       console.log('Usuário cadastrado:', novoUsuario);
-      // Aqui vamos salvar no service depois
       this.userForm.reset();
     } else {
       this.userForm.markAllAsTouched();

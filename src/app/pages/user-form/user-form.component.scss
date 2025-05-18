@@ -1,16 +1,17 @@
 .user-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 24px;
-}
-
-mat-form-field {
-  width: 100%;
-}
-
-button {
-  align-self: flex-end;
-}
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  button {
+    align-self: flex-end;
+  }
+  
