@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { debounceTime, distinctUntilChanged, filter } from 'rxjs';
 import { ViaCepService } from '../../service/viacep.service';
 import { UserService } from '../../service/user.service';
+import { ButtonDefaultComponent } from "../components/button-default/button-default.component";
 
 @Component({
   selector: 'app-user-form',
@@ -26,7 +27,8 @@ import { UserService } from '../../service/user.service';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-  ],
+    ButtonDefaultComponent
+],
   templateUrl: './user-form.component.html',
   styleUrl: './user-form.component.scss',
 })
