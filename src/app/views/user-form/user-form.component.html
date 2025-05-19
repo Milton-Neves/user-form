@@ -92,11 +92,11 @@
     <input matInput formControlName="estado" readonly />
   </mat-form-field>
 
-  <button mat-button color="primary" routerLink="/usuarios">
-    Ver lista de usuários
-  </button>
-
   <button mat-raised-button color="primary" type="submit">
     Salvar Usuário
   </button>
+
+  <app-button-default mat-button color="primary" [routerLink]="'/usuarios'">
+    Listar Usuários
+  </app-button-default>
 </form>

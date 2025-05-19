@@ -1,0 +1,13 @@
+.user-list-container {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+}
+
+.user-card {
+  margin: 12px;
+}
+
+app-button-default {
+  background-color: red;
+}

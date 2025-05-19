@@ -6,12 +6,16 @@
     margin: 0 auto;
     padding: 24px;
   }
-  
+
   mat-form-field {
     width: 100%;
   }
-  
+
   button {
     align-self: flex-end;
   }
-  
+
+  app-button-default {
+    display: flex;
+    justify-content: flex-end;
+  }
