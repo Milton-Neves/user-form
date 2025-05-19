@@ -1,0 +1,16 @@
+<div class="user-list-container" *ngIf="usuarios.length; else vazio">
+    <mat-card *ngFor="let usuario of usuarios" class="user-card">
+      <mat-card-title>{{ usuario.nome }}</mat-card-title>
+      <mat-card-content>
+        <p><strong>Email:</strong> {{ usuario.email }}</p>
+        <p><strong>Telefone:</strong> {{ usuario.telefone }}</p>
+        <p><strong>CPF:</strong> {{ usuario.cpf }}</p>
+        <p><strong>Endereço:</strong> {{ usuario.rua }}, {{ usuario.bairro }} - {{ usuario.cidade }}/{{ usuario.estado }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
+  <ng-template #vazio>
+    <p>Nenhum usuário cadastrado ainda.</p>
+  </ng-template>
+  
