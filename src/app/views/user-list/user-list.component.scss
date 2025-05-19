@@ -1,18 +1,18 @@
 .user-list-container {
   display: grid;
-  gap: 16px;
-  padding: 16px;
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .user-card {
-  margin: 12px;
+  margin: 0.75rem;
   padding: 1rem;
 }
 
 app-button-default {
   display: flex;
   justify-content: flex-end;
-  margin: 12px;
+  margin: 0.75rem;
 }
 
 :host ::ng-deep .mat-mdc-card-title {
