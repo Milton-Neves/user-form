@@ -52,7 +52,7 @@ export class UserFormComponent implements OnInit {
     this.userForm.get('cep')?.valueChanges
       .pipe(
         debounceTime(300),
-        filter((cep: string) => cep?.length === 9), // considerando o formato com máscara: 00000-000
+        filter((cep: string) => cep?.length === 8),
         distinctUntilChanged()
       )
       .subscribe((cep: string) => {
