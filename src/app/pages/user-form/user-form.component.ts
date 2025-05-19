@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { debounceTime, distinctUntilChanged, filter } from 'rxjs';
 import { ViaCepService } from '../../service/viacep.service';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-user-form',
@@ -33,8 +34,11 @@ export class UserFormComponent implements OnInit {
   userForm!: FormGroup;
   cepInvalido: boolean = false;
 
-
-  constructor(private fb: FormBuilder, private viaCepService: ViaCepService) {}
+  constructor(
+    private fb: FormBuilder,
+    private viaCepService: ViaCepService,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
     this.userForm = this.fb.group({
@@ -46,11 +50,12 @@ export class UserFormComponent implements OnInit {
       rua: [''],
       bairro: [''],
       cidade: [''],
-      estado: ['']
+      estado: [''],
     });
 
-    this.userForm.get('cep')?.valueChanges
-      .pipe(
+    this.userForm
+      .get('cep')
+      ?.valueChanges.pipe(
         debounceTime(300),
         filter((cep: string) => cep?.length === 8),
         distinctUntilChanged()
@@ -63,14 +68,14 @@ export class UserFormComponent implements OnInit {
               rua: data.logradouro,
               bairro: data.bairro,
               cidade: data.localidade,
-              estado: data.uf
+              estado: data.uf,
             });
           } else {
             this.userForm.patchValue({
               rua: '',
               bairro: '',
               cidade: '',
-              estado: ''
+              estado: '',
             });
           }
         });
@@ -79,10 +84,16 @@ export class UserFormComponent implements OnInit {
 
   onSubmit() {
     if (this.userForm.valid) {
+      const novoUsuario: User = this.userForm.value;
+      this.userService.adicionarUsuario(novoUsuario);
+
       console.log('Usuário cadastrado:', this.userForm.value);
       this.userForm.reset();
-    } else {
-      this.userForm.markAllAsTouched();
     }
+    Object.keys(this.userForm.controls).forEach((key) => {
+      this.userForm.get(key)?.setErrors(null);
+      this.userForm.get(key)?.markAsPristine();
+      this.userForm.get(key)?.markAsUntouched();
+    });
   }
 }
