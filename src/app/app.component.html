@@ -1,7 +1,8 @@
-<!-- <app-user-form></app-user-form>
-<app-user-list></app-user-list> -->
-
-<a mat-button routerLink="/usuarios">Listar</a>
-<a mat-button routerLink="/usuarios/novo">Novo</a>
+<mat-toolbar color="primary">
+  <span>Cadastro de Usuários</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/usuarios">Listar</button>
+  <button mat-button routerLink="/usuarios/novo">Novo</button>
+</mat-toolbar>
 
 <router-outlet></router-outlet>
