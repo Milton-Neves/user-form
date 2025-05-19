@@ -6,8 +6,17 @@
 
 .user-card {
   margin: 12px;
+  padding: 1rem;
 }
 
 app-button-default {
-  background-color: red;
+  display: flex;
+  justify-content: flex-end;
+  margin: 12px;
+}
+
+:host ::ng-deep .mat-mdc-card-title {
+  color: blueviolet;
+  margin: 1rem;
+  text-transform: uppercase;
 }

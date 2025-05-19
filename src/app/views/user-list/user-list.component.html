@@ -11,11 +11,11 @@
       </p>
     </mat-card-content>
   </mat-card>
-  <app-button-default [routerLink]="'/usuarios/novo'">
-    Adicionar Usuário
-  </app-button-default>
 </div>
+<app-button-default [routerLink]="'/usuarios/novo'">
+  Adicionar Usuário
+</app-button-default>
 
-<ng-template #nenhum>
+<ng-template id="notification" #nenhum>
   <p>Nenhum usuário cadastrado ainda.</p>
 </ng-template>
